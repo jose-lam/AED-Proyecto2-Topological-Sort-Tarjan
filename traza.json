@@ -1,0 +1,46 @@
+{
+  "caso_dag": {
+    "titulo": "DAG de Prerrequisitos de Cursos (6 Nodos)",
+    "n": 6,
+    "etiquetas": ["0: PROG1", "1: BD1", "2: PROG2", "3: AED", "4: PROG3", "5: BD2"],
+    "aristas": [[0, 2], [2, 4], [4, 3], [2, 1], [3, 5], [1, 5]],
+    "eventos": [
+      {"tipo": "iniciar_nodo", "u": 0, "estado": 1, "tin": 1, "tout": -1, "mensaje": "Descubriendo nodo 0: PROG1 (estado = 1, tin = 1)"},
+      {"tipo": "explorar_arista", "u": 0, "v": 2, "estado_v": 0, "mensaje": "Explorando arista (0 -> 2): destino no visitado (estado = 0)"},
+      {"tipo": "iniciar_nodo", "u": 2, "estado": 1, "tin": 2, "tout": -1, "mensaje": "Descubriendo nodo 2: PROG2 (estado = 1, tin = 2)"},
+      {"tipo": "explorar_arista", "u": 2, "v": 4, "estado_v": 0, "mensaje": "Explorando arista (2 -> 4): destino no visitado (estado = 0)"},
+      {"tipo": "iniciar_nodo", "u": 4, "estado": 1, "tin": 3, "tout": -1, "mensaje": "Descubriendo nodo 4: PROG3 (estado = 1, tin = 3)"},
+      {"tipo": "explorar_arista", "u": 4, "v": 3, "estado_v": 0, "mensaje": "Explorando arista (4 -> 3): destino no visitado (estado = 0)"},
+      {"tipo": "iniciar_nodo", "u": 3, "estado": 1, "tin": 4, "tout": -1, "mensaje": "Descubriendo nodo 3: AED (estado = 1, tin = 4)"},
+      {"tipo": "explorar_arista", "u": 3, "v": 5, "estado_v": 0, "mensaje": "Explorando arista (3 -> 5): destino no visitado (estado = 0)"},
+      {"tipo": "iniciar_nodo", "u": 5, "estado": 1, "tin": 5, "tout": -1, "mensaje": "Descubriendo nodo 5: BD2 (estado = 1, tin = 5)"},
+      {"tipo": "finalizar_nodo", "u": 5, "estado": 2, "tin": 5, "tout": 6, "pila": [5], "mensaje": "Nodo 5: BD2 terminado (tout = 6). Apilado en orden."},
+      {"tipo": "finalizar_nodo", "u": 3, "estado": 2, "tin": 4, "tout": 7, "pila": [5, 3], "mensaje": "Nodo 3: AED terminado (tout = 7). Apilado en orden."},
+      {"tipo": "finalizar_nodo", "u": 4, "estado": 2, "tin": 3, "tout": 8, "pila": [5, 3, 4], "mensaje": "Nodo 4: PROG3 terminado (tout = 8). Apilado en orden."},
+      {"tipo": "explorar_arista", "u": 2, "v": 1, "estado_v": 0, "mensaje": "Explorando arista (2 -> 1): destino no visitado (estado = 0)"},
+      {"tipo": "iniciar_nodo", "u": 1, "estado": 1, "tin": 9, "tout": -1, "mensaje": "Descubriendo nodo 1: BD1 (estado = 1, tin = 9)"},
+      {"tipo": "arista_visitada", "u": 1, "v": 5, "estado_v": 2, "mensaje": "Arista (1 -> 5): destino ya terminado (estado = 2, tout = 6)"},
+      {"tipo": "finalizar_nodo", "u": 1, "estado": 2, "tin": 9, "tout": 10, "pila": [5, 3, 4, 1], "mensaje": "Nodo 1: BD1 terminado (tout = 10). Apilado en orden."},
+      {"tipo": "finalizar_nodo", "u": 2, "estado": 2, "tin": 2, "tout": 11, "pila": [5, 3, 4, 1, 2], "mensaje": "Nodo 2: PROG2 terminado (tout = 11). Apilado en orden."},
+      {"tipo": "finalizar_nodo", "u": 0, "estado": 2, "tin": 1, "tout": 12, "pila": [5, 3, 4, 1, 2, 0], "mensaje": "Nodo 0: PROG1 terminado (tout = 12). Apilado en orden."},
+      {"tipo": "resultado_final", "es_dag": true, "pila_final": [5, 3, 4, 1, 2, 0], "orden_topologico": [0, 2, 1, 4, 3, 5], "mensaje": "Pila invertida: Orden Topológico válido obtenido."}
+    ]
+  },
+  "caso_ciclo": {
+    "titulo": "Caso Borde: Detección de Ciclo Dirigido",
+    "n": 4,
+    "etiquetas": ["0: Auth", "1: Core", "2: API", "3: DB"],
+    "aristas": [[0, 1], [1, 2], [2, 3], [3, 1]],
+    "eventos": [
+      {"tipo": "iniciar_nodo", "u": 0, "estado": 1, "tin": 1, "tout": -1, "mensaje": "Descubriendo nodo 0: Auth (estado = 1, tin = 1)"},
+      {"tipo": "explorar_arista", "u": 0, "v": 1, "estado_v": 0, "mensaje": "Explorando arista (0 -> 1): destino no visitado (estado = 0)"},
+      {"tipo": "iniciar_nodo", "u": 1, "estado": 1, "tin": 2, "tout": -1, "mensaje": "Descubriendo nodo 1: Core (estado = 1, tin = 2)"},
+      {"tipo": "explorar_arista", "u": 1, "v": 2, "estado_v": 0, "mensaje": "Explorando arista (1 -> 2): destino no visitado (estado = 0)"},
+      {"tipo": "iniciar_nodo", "u": 2, "estado": 1, "tin": 3, "tout": -1, "mensaje": "Descubriendo nodo 2: API (estado = 1, tin = 3)"},
+      {"tipo": "explorar_arista", "u": 2, "v": 3, "estado_v": 0, "mensaje": "Explorando arista (2 -> 3): destino no visitado (estado = 0)"},
+      {"tipo": "iniciar_nodo", "u": 3, "estado": 1, "tin": 4, "tout": -1, "mensaje": "Descubriendo nodo 3: DB (estado = 1, tin = 4)"},
+      {"tipo": "ciclo_detectado", "u": 3, "v": 1, "estado_v": 1, "mensaje": "¡Ciclo detectado! Arista (3 -> 1) apunta a un nodo en proceso (estado == 1)"},
+      {"tipo": "resultado_final", "es_dag": false, "pila_final": [], "orden_topologico": [], "mensaje": "Ejecución abortada: el grafo contiene un ciclo dirigido."}
+    ]
+  }
+}
