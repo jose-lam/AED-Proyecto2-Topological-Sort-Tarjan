@@ -27,7 +27,6 @@ topological-sort-tarjan/
 ├── main.cpp        # Implementación en C++17 (DFS 3 estados, tin/tout y exportador JSON)
 ├── traza.json      # Traza de ejecución generada automáticamente por main.cpp
 ├── scene.py        # Escena de animación en Manim Community (consumidor de traza.json)
-├── informe.tex     # Informe técnico académico en formato LaTeX
 └── README.md       # Documentación y guía de reproducción
 ```
 
